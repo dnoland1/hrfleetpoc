@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: cattle-resources-system
+---
+apiVersion: helm.cattle.io/v1
+kind: HelmChart
+metadata:
+  name: rancher-backup-crd
+  namespace: kube-system
+spec:
+  chart: rancher-backup-crd
+  repo: https://charts.rancher.io
+  targetNamespace: cattle-resources-system
+  version: v103.0.1+up4.0.1
+---
+apiVersion: helm.cattle.io/v1
+kind: HelmChart
+metadata:
+  name: rancher-backup
+  namespace: kube-system
+spec:
+  chart: rancher-backup
+  repo: https://charts.rancher.io
+  targetNamespace: cattle-resources-system
+  version: v103.0.1+up4.0.1
